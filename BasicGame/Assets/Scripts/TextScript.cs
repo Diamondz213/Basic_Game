@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class TextScript : MonoBehaviour
 {
@@ -10,8 +11,6 @@ public class TextScript : MonoBehaviour
     public TextMeshProUGUI NumberText;
 
     public GameObject Enemy;
-
-    public bool gameWon = false;
 
     public CollisionDetector collisionScript;
     // Start is called before the first frame update
@@ -25,14 +24,21 @@ public class TextScript : MonoBehaviour
     {     
         if (collisionScript.hitCounter >= 5)
         {
-            Counter.text = "Nice Job! You Won!";
+            Counter.text = "Nice Job! You Won!" + "Press R to Restart";
             Destroy(Enemy);
-            gameWon = true;
+            if (Input.GetKey(KeyCode.R))
+            {
+                SceneManager.LoadScene(0);
+            }
         }
         else
         if (collisionScript.hitCounter < 5)
         {
-            Counter.text = "Hit the enemy(red cube) 5 times to win!";
+            Counter.text = "Hit the enemy(red cube) 5 times to win!" + "Press R to Restart";
+            if (Input.GetKey(KeyCode.R))
+            {
+                SceneManager.LoadScene(1);
+            }
         }
     }
 }
