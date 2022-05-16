@@ -26,6 +26,7 @@ public class TextScript : MonoBehaviour
         {
             Counter.text = "Nice Job! You Won!" + "Press R to Restart";
             Destroy(Enemy);
+            SceneManager.LoadScene(3);
             if (Input.GetKey(KeyCode.R))
             {
                 SceneManager.LoadScene(0);
@@ -34,7 +35,7 @@ public class TextScript : MonoBehaviour
         else
         if (collisionScript.hitCounter < 5)
         {
-            Counter.text = "Hit the enemy(red cube) 5 times to win!" + "Press R to Restart";
+            Counter.text = "Press R to Restart";
             if (Input.GetKey(KeyCode.R))
             {
                 SceneManager.LoadScene(1);

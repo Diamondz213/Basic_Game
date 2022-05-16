@@ -6,11 +6,12 @@ using TMPro;
 public class CollisionDetector : MonoBehaviour
 {
     public float hitCounter;
+    public AudioSource MineSound;
     public TextMeshProUGUI NumberText;
     // Start is called before the first frame update
     void Start()
     {
-        
+        MineSound = GetComponent<AudioSource>();
     }
 
     public void OnCollisionEnter(Collision collision)
@@ -21,6 +22,7 @@ public class CollisionDetector : MonoBehaviour
            print("I've been hit " + hitCounter + " times.");
             NumberText.text = hitCounter.ToString();
             NumberText.text = ("Hit Count: " + hitCounter);
+            MineSound.Play();
         }
     }
 

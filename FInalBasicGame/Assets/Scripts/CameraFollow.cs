@@ -4,9 +4,11 @@ using UnityEngine;
 
 public class CameraFollow : MonoBehaviour
 {
+    
     // Target object
     public Transform targetObject;
-
+    public int rotateSpeed;
+   
     // distance between Camera and Player
     public Vector3 cameraOffset;
     // Start is called before the first frame update
@@ -20,5 +22,7 @@ public class CameraFollow : MonoBehaviour
     {
         Vector3 newPosition = targetObject.transform.position + cameraOffset;
         transform.position = newPosition;
+
     }
+
 }
